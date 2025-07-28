@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cbvrifj17ebuu"
+path="res://.godot/imported/BeforeBossLeftScrollsCollected.dialogue-59fb73d595c645724933739ba3b2bbad.tres"
+
+[deps]
+
+source_file="res://dialogue/BossLeft/BeforeBossLeftScrollsCollected.dialogue"
+dest_files=["res://.godot/imported/BeforeBossLeftScrollsCollected.dialogue-59fb73d595c645724933739ba3b2bbad.tres"]
+
+[params]
+
+defaults=true

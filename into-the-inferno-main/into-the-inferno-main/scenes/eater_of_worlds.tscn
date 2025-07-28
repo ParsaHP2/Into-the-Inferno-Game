@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://die810lac22w3"]
+
+[ext_resource type="Script" path="res://scripts/eater_of_worlds.gd" id="1_dvx5g"]
+[ext_resource type="PackedScene" uid="uid://dus8wh2jjc2yg" path="res://blends/eater_of_worlds.blend" id="1_yencq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4t5ob"]
+size = Vector3(1, 6, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kru0q"]
+size = Vector3(1, 2, 10)
+
+[node name="EaterOfWorlds" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_dvx5g")
+
+[node name="Model" parent="." instance=ExtResource("1_yencq")]
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.265316, -1.55429e-16, 3.53911e-16, 0.964161)
+bones/1/rotation = Quaternion(-0.114453, 1.22564e-17, 1.60294e-16, 0.993429)
+bones/2/rotation = Quaternion(0.052124, 2.23021e-17, -9.18618e-17, 0.998641)
+bones/3/rotation = Quaternion(0.197701, 1.17201e-17, -3.01395e-16, 0.980262)
+bones/4/rotation = Quaternion(0.291762, 6.08044e-18, -4.50877e-16, 0.956491)
+bones/5/rotation = Quaternion(0.313346, 3.25672e-18, -4.80799e-16, 0.949639)
+bones/6/rotation = Quaternion(0.259045, 1.13521e-18, -4.06445e-16, 0.965865)
+bones/7/rotation = Quaternion(0.145182, 3.26301e-19, -2.28275e-16, 0.989405)
+bones/8/rotation = Quaternion(0.180948, 1.17241e-07, 2.15706e-08, 0.983493)
+bones/9/rotation = Quaternion(-0.086349, -1.01021e-16, -1.01021e-16, 0.996265)
+bones/10/position = Vector3(5.42839e-15, 4.72141, 1.0382)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_4t5ob")
+
+[node name="MoveHitbox" type="Area3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5)
+shape = SubResource("BoxShape3D_kru0q")
+
+[connection signal="body_entered" from="MoveHitbox" to="." method="_on_move_hitbox_body_entered"]
+
+[editable path="Model"]

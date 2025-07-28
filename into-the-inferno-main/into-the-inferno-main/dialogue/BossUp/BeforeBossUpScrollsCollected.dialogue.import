@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://gkx58lvp3pr1"
+path="res://.godot/imported/BeforeBossUpScrollsCollected.dialogue-5c5df9adef5a91ac5654d4e8c0e0826f.tres"
+
+[deps]
+
+source_file="res://dialogue/BossUp/BeforeBossUpScrollsCollected.dialogue"
+dest_files=["res://.godot/imported/BeforeBossUpScrollsCollected.dialogue-5c5df9adef5a91ac5654d4e8c0e0826f.tres"]
+
+[params]
+
+defaults=true

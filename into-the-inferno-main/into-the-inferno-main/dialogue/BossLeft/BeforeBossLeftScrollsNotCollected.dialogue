@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Crawler: You march forward without hesitation. No questions, no doubts. Tell me, do you even know what you are becoming?
+Avatris: I know exactly what I am. Stronger. Faster. More powerful than before.
+Crawler: Is that what you think? That power is something to collect? To hoard? And what do you have to show for it—besides a trail of forgotten faces?
+Avatris: I don’t care for your lectures. I came here to win. If you’re in my way, I’ll cut you down.
+Crawler: Ah, so blind. So predictable. You mistake power for purpose, and yet you do not ask—power for what? You are a fool, Avatris.
+Avatris: Enough.
+Crawler: Very well. Strike me down, and continue your mindless pursuit. But remember—every step forward is another step lost.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

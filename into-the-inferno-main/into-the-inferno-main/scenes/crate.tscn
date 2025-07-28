@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0yfmlw4j2dtv"]
+
+[ext_resource type="Script" path="res://scripts/crate.gd" id="1_a3hun"]
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="2_qscep"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="3_v53sc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2oyi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhuka"]
+size = Vector3(1.25, 1.25, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bybx"]
+render_priority = 0
+shader = ExtResource("2_qscep")
+shader_parameter/ColorParameter = Color(1.5, 1.5, 0, 1)
+shader_parameter/TextureSpeed = Vector2(1, 0)
+shader_parameter/Have_Gradient = false
+shader_parameter/Power = 1.5
+shader_parameter/Main_Texture = ExtResource("3_v53sc")
+
+[sub_resource type="BoxMesh" id="BoxMesh_l634i"]
+
+[node name="Crate" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.174963, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_a3hun")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_m2oyi")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_jhuka")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_5bybx")
+mesh = SubResource("BoxMesh_l634i")

@@ -1,0 +1,10 @@
+~ start
+set Global.in_dialogue = true
+Eater of Worlds: Another soul, hungry for power. You walk forward without looking back. Do you even know what you leave behind?
+Avatris: Stop talking nonsense. I’m only trying to get out of this hell hole.
+Eater of Worlds: Get out? Is that all you care about? I have seen many like you—grasping, climbing, never questioning. Tell me, does ahieving a mere goal tastes as sweet when you lose sight of why you fight?
+Avatris: Enough talk. Get out of my way.
+Eater of Worlds: Then come. Let’s see how far your greed will take you.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

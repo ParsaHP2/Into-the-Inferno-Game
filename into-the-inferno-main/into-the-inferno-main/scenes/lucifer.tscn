@@ -1,0 +1,199 @@
+[gd_scene load_steps=26 format=3 uid="uid://ceyyrj3eylvip"]
+
+[ext_resource type="Script" path="res://scripts/lucifer.gd" id="1_4aktd"]
+[ext_resource type="PackedScene" uid="uid://ci7qjkba8bfme" path="res://blends/lucifer.blend" id="2_313gf"]
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="3_a0qwl"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="4_ge3p1"]
+[ext_resource type="ArrayMesh" uid="uid://e7slvect3wob" path="res://blends/blends/beam.obj" id="5_jaxg2"]
+[ext_resource type="AudioStream" uid="uid://dxs3qdu6aqmkb" path="res://audio/660463__guillermochicasonido__energy-blast-[AudioTrimmer.com].wav" id="6_i0y4y"]
+
+[sub_resource type="Gradient" id="Gradient_rrhcs"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ee0h"]
+gradient = SubResource("Gradient_rrhcs")
+fill_from = Vector2(0, 0.864734)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgqc8"]
+render_priority = 0
+shader = ExtResource("3_a0qwl")
+shader_parameter/ColorParameter = Color(2, 0.5, 0, 1)
+shader_parameter/TextureSpeed = Vector2(1, -3)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 1.0
+shader_parameter/Main_Texture = ExtResource("4_ge3p1")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_2ee0h")
+
+[sub_resource type="Curve" id="Curve_83g8x"]
+max_value = 4.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(0.8, 4), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_acivu"]
+max_value = 4.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(0.8, 4), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_si706"]
+max_value = 15.0
+_data = [Vector2(0, 1), 0.0, 71.2005, 0, 0, Vector2(0.3, 15), 0.0, 0.0, 0, 0, Vector2(1, 15), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_03q6w"]
+curve_x = SubResource("Curve_83g8x")
+curve_y = SubResource("Curve_acivu")
+curve_z = SubResource("Curve_si706")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xws7r"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_03q6w")
+
+[sub_resource type="Gradient" id="Gradient_lx7ct"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mf2ww"]
+gradient = SubResource("Gradient_lx7ct")
+fill_from = Vector2(0, 0.888889)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsfql"]
+render_priority = 0
+shader = ExtResource("3_a0qwl")
+shader_parameter/ColorParameter = Color(1.502, 1, 0.2, 1)
+shader_parameter/TextureSpeed = Vector2(1, -2)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 1.0
+shader_parameter/Main_Texture = ExtResource("4_ge3p1")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_mf2ww")
+
+[sub_resource type="Curve" id="Curve_w6jcs"]
+max_value = 3.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(1e-05, 3), 0.0, 0.0, 0, 0, Vector2(0.8, 3), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_64wik"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(0.8, 3), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_c0lny"]
+max_value = 15.0
+_data = [Vector2(0, 1), 0.0, 71.2005, 0, 0, Vector2(0.3, 15), 0.0, 0.0, 0, 0, Vector2(1, 15), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5j8go"]
+curve_x = SubResource("Curve_w6jcs")
+curve_y = SubResource("Curve_64wik")
+curve_z = SubResource("Curve_c0lny")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ew002"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_5j8go")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amni5"]
+size = Vector3(6, 6, 13)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sdbh8"]
+radius = 0.75
+height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yli01"]
+radius = 2.0
+
+[node name="Lucifer" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_4aktd")
+
+[node name="Model" parent="." instance=ExtResource("2_313gf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/0/rotation = Quaternion(0.139095, 0, -3.08852e-17, 0.990279)
+bones/1/rotation = Quaternion(0, 0, 3.10193e-25, 1)
+bones/2/rotation = Quaternion(0, 0, 3.10193e-25, 1)
+bones/3/rotation = Quaternion(-7.45058e-09, 1.19209e-07, -8.88178e-16, 1)
+bones/5/rotation = Quaternion(-0.110215, 0.0737557, -0.351158, 0.926877)
+bones/6/rotation = Quaternion(0.257442, 3.18967e-09, 6.7881e-08, 0.966294)
+bones/8/rotation = Quaternion(-0.110215, -0.0737557, 0.351158, 0.926877)
+bones/9/rotation = Quaternion(0.257442, -1.38981e-09, -5.6335e-08, 0.966294)
+bones/10/rotation = Quaternion(-0.189904, 0.58943, 0.75314, -0.222009)
+bones/10/scale = Vector3(1.00003, 1, 1)
+bones/11/rotation = Quaternion(-0.565961, 0.000402503, -0.357924, 0.742683)
+bones/12/rotation = Quaternion(-0.929459, 1.14303e-15, 9.47894e-16, 0.368924)
+bones/13/rotation = Quaternion(-0.0122175, 8.34442e-17, -3.8002e-16, 0.999925)
+bones/14/rotation = Quaternion(0.126367, -2.26921e-17, -2.60859e-16, 0.991984)
+bones/15/rotation = Quaternion(0.250778, -6.79886e-17, -6.37944e-16, 0.968045)
+bones/16/rotation = Quaternion(0.267473, -1.45916e-16, -8.75678e-16, 0.963565)
+bones/17/rotation = Quaternion(0.184318, 1.17167e-07, 2.19724e-08, 0.982867)
+bones/18/rotation = Quaternion(0.189904, 0.58943, 0.75314, 0.222009)
+bones/18/scale = Vector3(1.00003, 1, 1)
+bones/19/rotation = Quaternion(-0.565961, -0.000402503, 0.357924, 0.742683)
+bones/20/position = Vector3(0.7652, -0.020812, -0.0368447)
+bones/20/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/21/position = Vector3(2.30085e-05, 4.80472e-06, 9.50987e-06)
+bones/21/rotation = Quaternion(0.621193, 0.337817, -0.499583, 0.500417)
+bones/30/position = Vector3(0.656407, 0.473293, -0.454153)
+bones/30/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/31/position = Vector3(3.96484e-16, 0.381594, -1.45176)
+bones/32/position = Vector3(-0.397703, -0.208611, 1.43522)
+bones/32/rotation = Quaternion(-0.0277725, 0.706561, 0.706561, -0.0277725)
+bones/33/position = Vector3(0.331137, -0.879757, 0.334752)
+bones/34/position = Vector3(-4.58178e-06, -1.47461e-05, 8.6286e-05)
+bones/34/rotation = Quaternion(0.768618, -0.0336188, 0.0205238, 0.638495)
+bones/35/position = Vector3(-0.7652, -0.020812, -0.0368447)
+bones/36/position = Vector3(-2.30085e-05, 4.80472e-06, 9.50987e-06)
+bones/36/rotation = Quaternion(0.621193, -0.337817, 0.499583, 0.500417)
+bones/45/position = Vector3(-0.656407, 0.473293, -0.454153)
+bones/46/position = Vector3(0.397703, -0.208611, 1.43522)
+bones/47/position = Vector3(-0.331137, -0.879757, 0.334752)
+bones/47/rotation = Quaternion(0.0226608, 0.706744, -0.706744, -0.0226608)
+bones/48/position = Vector3(4.58097e-06, -1.46791e-05, 8.62832e-05)
+bones/48/rotation = Quaternion(0.768618, 0.0336188, -0.0205238, 0.638495)
+
+[node name="Beam" type="Area3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 2, 1)
+collision_mask = 3
+
+[node name="Outer" type="GPUParticles3D" parent="Model/Beam"]
+material_override = SubResource("ShaderMaterial_sgqc8")
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+fixed_fps = 75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_xws7r")
+draw_pass_1 = ExtResource("5_jaxg2")
+
+[node name="Inner" type="GPUParticles3D" parent="Model/Beam"]
+material_override = SubResource("ShaderMaterial_gsfql")
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+fixed_fps = 75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ew002")
+draw_pass_1 = ExtResource("5_jaxg2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Beam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62268e-07, 0, -6)
+shape = SubResource("BoxShape3D_amni5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_sdbh8")
+
+[node name="LungeHitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LungeHitbox"]
+shape = SubResource("SphereShape3D_yli01")
+
+[node name="BeamSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i0y4y")
+volume_db = 5.0
+
+[connection signal="body_entered" from="LungeHitbox" to="." method="_on_lunge_hitbox_body_entered"]
+
+[editable path="Model"]

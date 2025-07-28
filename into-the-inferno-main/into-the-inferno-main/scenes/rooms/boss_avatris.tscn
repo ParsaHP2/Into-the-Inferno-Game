@@ -1,0 +1,130 @@
+[gd_scene load_steps=20 format=3 uid="uid://b3a6gmv7oykbl"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_jo8xk"]
+[ext_resource type="PackedScene" uid="uid://2fjcvrt205ll" path="res://scenes/player.tscn" id="2_fxjbq"]
+[ext_resource type="PackedScene" uid="uid://bh0kh7wt6ibyi" path="res://scenes/ui.tscn" id="3_lrcb8"]
+[ext_resource type="PackedScene" uid="uid://dmquiqg4qnw2u" path="res://scenes/avatris_boss.tscn" id="3_urda2"]
+[ext_resource type="PackedScene" uid="uid://d0yfmlw4j2dtv" path="res://scenes/crate.tscn" id="5_7a664"]
+[ext_resource type="AudioStream" uid="uid://bkkcywn5mbwyv" path="res://audio/fearless-final-boss-battle-epic-274997.mp3" id="5_m5jbc"]
+[ext_resource type="AudioStream" uid="uid://j17t6prqypti" path="res://audio/660770__madpancake__hit-impact.ogg" id="5_yfs3k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fv2kc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_o2hde"]
+sky_material = SubResource("ProceduralSkyMaterial_fv2kc")
+
+[sub_resource type="Environment" id="Environment_ree4u"]
+background_mode = 2
+sky = SubResource("Sky_o2hde")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en1pa"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2kx6"]
+size = Vector3(10, 1, 7)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_di44g"]
+data = PackedVector3Array(-5, 0.5, 3.5, 5, 0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, -3.5, 5, -0.5, -3.5, -5, 0.5, -3.5, -5, -0.5, -3.5, 5, -0.5, -3.5, 5, 0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, -3.5, 5, -0.5, 3.5, -5, 0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, 3.5, -5, -0.5, -3.5, 5, 0.5, 3.5, -5, 0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, 3.5, -5, 0.5, -3.5, 5, 0.5, -3.5, -5, -0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, -3.5, 5, -0.5, 3.5, 5, -0.5, -3.5, -5, -0.5, -3.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0w4n"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.593962, 0.382437, 0.121877, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxvmc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2itq3"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3s631"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ibbog"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gokj3"]
+size = Vector3(1, 50, 1)
+
+[node name="BossAvatris" type="Node3D" node_paths=PackedStringArray("boss")]
+script = ExtResource("1_jo8xk")
+boss = NodePath("AvatrisBoss")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ree4u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_fxjbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_en1pa")
+mesh = SubResource("BoxMesh_n2kx6")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_di44g")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 1, 0, 12, -4)
+material_override = SubResource("StandardMaterial3D_x0w4n")
+mesh = SubResource("BoxMesh_oxvmc")
+
+[node name="LeftWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, -13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_2itq3")
+mesh = SubResource("BoxMesh_3s631")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ibbog")
+
+[node name="RightWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, 13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_2itq3")
+mesh = SubResource("BoxMesh_3s631")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ibbog")
+
+[node name="AvatrisBoss" parent="." instance=ExtResource("3_urda2")]
+
+[node name="UI" parent="." instance=ExtResource("3_lrcb8")]
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_gokj3")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("BoxShape3D_gokj3")
+
+[node name="Crate" parent="." instance=ExtResource("5_7a664")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yfs3k")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_m5jbc")
+autoplay = true
+parameters/looping = true

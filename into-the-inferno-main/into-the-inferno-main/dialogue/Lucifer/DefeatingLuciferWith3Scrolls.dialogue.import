@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cbgwxg1n7jxob"
+path="res://.godot/imported/DefeatingLuciferWith3Scrolls.dialogue-a42ee65ce9f33de4b37e393cd4aacde7.tres"
+
+[deps]
+
+source_file="res://dialogue/Lucifer/DefeatingLuciferWith3Scrolls.dialogue"
+dest_files=["res://.godot/imported/DefeatingLuciferWith3Scrolls.dialogue-a42ee65ce9f33de4b37e393cd4aacde7.tres"]
+
+[params]
+
+defaults=true

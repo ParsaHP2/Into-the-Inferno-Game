@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=3 uid="uid://b3i3os85i0pnv"]
+
+[ext_resource type="PackedScene" uid="uid://2s5loaqhuq7d" path="res://blends/eruption_base.blend" id="1_hjkqd"]
+[ext_resource type="Script" path="res://scripts/eruption.gd" id="1_igti4"]
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="2_84f8x"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="3_ihxv6"]
+[ext_resource type="ArrayMesh" uid="uid://bdqvqn3w7mmb3" path="res://blends/blends/eruption.obj" id="4_ockak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwngo"]
+render_priority = 0
+shader = ExtResource("2_84f8x")
+shader_parameter/ColorParameter = Color(1, 0.501961, 0, 1)
+shader_parameter/TextureSpeed = Vector2(2, 1)
+shader_parameter/Have_Gradient = false
+shader_parameter/Power = 0.5
+shader_parameter/Main_Texture = ExtResource("3_ihxv6")
+
+[sub_resource type="Curve" id="Curve_d7gw1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xv8cs"]
+max_value = 5.0
+_data = [Vector2(0, 0.5), 0.0, 37.9121, 0, 0, Vector2(0.3, 5), 0.0, 0.0, 0, 0, Vector2(0.603774, 5), 0.0, 0.0, 0, 0, Vector2(0.9, 0), -31.9651, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_feffr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2td1m"]
+curve_x = SubResource("Curve_d7gw1")
+curve_y = SubResource("Curve_xv8cs")
+curve_z = SubResource("Curve_feffr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pa2rg"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_2td1m")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kr0m"]
+size = Vector3(2, 5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7gsu1"]
+size = Vector3(2, 5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qs53r"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_tylfc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l2hqk"]
+resource_name = "erupt"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8),
+"transitions": PackedFloat32Array(0.554784, 1, 1.8025, 1),
+"update": 0,
+"values": [Vector3(0, -3, 0), Vector3(0, 2, 0), Vector3(0, 2, 0), Vector3(0, -3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_le0lo"]
+_data = {
+"RESET": SubResource("Animation_tylfc"),
+"erupt": SubResource("Animation_l2hqk")
+}
+
+[node name="Eruption" type="Node3D"]
+script = ExtResource("1_igti4")
+
+[node name="eruption_base" parent="." instance=ExtResource("1_hjkqd")]
+
+[node name="Lava" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_kwngo")
+emitting = false
+amount = 1
+lifetime = 2.0
+fixed_fps = 75
+visibility_aabb = AABB(-100, -100, -100, 100, 100, 100)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_pa2rg")
+draw_pass_1 = ExtResource("4_ockak")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_5kr0m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hitbox"]
+mesh = SubResource("BoxMesh_7gsu1")
+surface_material_override/0 = SubResource("StandardMaterial3D_qs53r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_le0lo")
+}
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

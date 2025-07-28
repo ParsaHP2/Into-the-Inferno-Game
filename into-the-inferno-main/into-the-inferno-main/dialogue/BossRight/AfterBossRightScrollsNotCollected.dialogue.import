@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://boltmmwub68vm"
+path="res://.godot/imported/AfterBossRightScrollsNotCollected.dialogue-550a5ed3232ea713ce20149d63c998ce.tres"
+
+[deps]
+
+source_file="res://dialogue/BossRight/AfterBossRightScrollsNotCollected.dialogue"
+dest_files=["res://.godot/imported/AfterBossRightScrollsNotCollected.dialogue-550a5ed3232ea713ce20149d63c998ce.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,19 @@
+~ start
+if not Global.entered_hub:
+	set Global.in_dialogue = true
+	set Global.entered_hub = true
+	Mysterious Voice: Hello there, mortal. Welcome to the Underworld.
+	Avatris: Who are you? 
+	Mysterious Voice: My name is Lucifer, and I shall be your... guide.
+	Avatris: Guide!? What are you talking about? I don't belong here let alone be guided by some... devil looking thing!
+	Lucifer: Ah, but on the contrary you do need my guidance whether you like it or not, how will you be able navigate through the gates?  
+	Avatris: Gates?
+	Lucifer: Yes, there are three of them in this room as you can see. You may enter the gates in any order.
+	Avatris: Will I be able to get out of here through the gate?
+	Lucifer: You must go through each gate and complete their respective trials. I am sure you'll face many... adversaries.
+	Avatris: Adversaries...? What are you saying?
+	Lucifer: ...
+	Avatris: Fine then. I'll do it...
+	set Global.in_dialogue = false
+	set Global.dialogue_Finished.emit()
+=> END

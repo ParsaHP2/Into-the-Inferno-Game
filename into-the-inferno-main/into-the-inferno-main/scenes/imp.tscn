@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxr5g0sr56m3h"]
+
+[ext_resource type="Script" path="res://scripts/imp.gd" id="1_67k7e"]
+[ext_resource type="PackedScene" uid="uid://bwxmkh3cymee3" path="res://blends/imp.blend" id="2_g2xxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gvm8"]
+size = Vector3(1, 2, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ndb2n"]
+size = Vector3(12, 4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq4g0"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khtr4"]
+bg_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o8yux"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Imp" type="CharacterBody3D"]
+collision_mask = 3
+script = ExtResource("1_67k7e")
+
+[node name="Model" parent="." instance=ExtResource("2_g2xxe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.5, 0)
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/3/rotation = Quaternion(1.0763e-06, -4.07733e-07, 0.90012, -0.435642)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(1.22155e-06, -5.5026e-08, 0.315983, 0.948765)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(4.18333e-09, 9.32314e-08, 0.00354063, 0.999994)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-1.0763e-06, -4.07733e-07, 0.90012, 0.435642)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(1.22155e-06, 5.5026e-08, -0.315983, 0.948765)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(4.18333e-09, -9.32314e-08, -0.00354063, 0.999994)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/scale = Vector3(0.999999, 1, 1)
+bones/10/rotation = Quaternion(0.00999185, -0.000227215, -0.0116478, 0.999882)
+bones/11/scale = Vector3(0.999999, 1, 1)
+bones/12/rotation = Quaternion(0.00999185, 0.000227215, 0.0116478, 0.999882)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519258, 0)
+shape = SubResource("BoxShape3D_5gvm8")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+shape = SubResource("BoxShape3D_ndb2n")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(175, 25)
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_kq4g0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_khtr4")
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+texture_filter = 0
+texture = SubResource("ViewportTexture_o8yux")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+
+[editable path="Model"]

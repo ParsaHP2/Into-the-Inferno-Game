@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cixgcmcac05jo"
+path="res://.godot/imported/AfterBossRightScrollsCollected.dialogue-7038850e8616890e815f5e8ebaf2e366.tres"
+
+[deps]
+
+source_file="res://dialogue/BossRight/AfterBossRightScrollsCollected.dialogue"
+dest_files=["res://.godot/imported/AfterBossRightScrollsCollected.dialogue-7038850e8616890e815f5e8ebaf2e366.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Lucifer: Ah, Avatris… You’ve finally arrived. You’ve come far. Why not stay? You’ve learned what it means to seek power. Join me, rule this world, and all others. You deserve it.
+Avatris: No. I’m not interested in your power.
+Lucifer: You think you’re different? You’ve tasted control. The satisfaction. You could have it all. The underworld could be yours. I can make you more than you ever dreamed.
+Avatris: You took everything from me once. I won’t fall for your lies.
+Lucifer: You think you can stop me? I control everything. The hunger you feel—that’s me. You’re already mine.
+Avatris: I’m not yours. I fight for redemption, not power. I won’t let you destroy any more lives.
+Lucifer: Then prepare to face your end.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

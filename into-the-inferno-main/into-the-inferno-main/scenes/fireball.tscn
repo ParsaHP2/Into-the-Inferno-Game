@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://w7mselklhd1w"]
+
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_qjegb"]
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="1_rcoyy"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="2_gfrpt"]
+[ext_resource type="ArrayMesh" uid="uid://bw4fgr4m2aj7b" path="res://blends/fireball.obj" id="3_b7t76"]
+
+[sub_resource type="Gradient" id="Gradient_ocfce"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iqw2q"]
+gradient = SubResource("Gradient_ocfce")
+fill_from = Vector2(0, 0.844086)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ywqa"]
+render_priority = 0
+shader = ExtResource("1_rcoyy")
+shader_parameter/ColorParameter = Color(2, 0.5, 0, 1)
+shader_parameter/TextureSpeed = Vector2(0, -2)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 3.0
+shader_parameter/Main_Texture = ExtResource("2_gfrpt")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_iqw2q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tcoe"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.50196, 1, 0.2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ewgn3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5r1ar"]
+radius = 0.7
+
+[node name="Fireball" type="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_mask = 5
+script = ExtResource("1_qjegb")
+
+[node name="Aura" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_8ywqa")
+mesh = ExtResource("3_b7t76")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_4tcoe")
+mesh = SubResource("SphereMesh_ewgn3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5r1ar")
+
+[node name="Lifespan" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]

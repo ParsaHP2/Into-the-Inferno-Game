@@ -1,0 +1,14 @@
+~ start
+set Global.in_dialogue = true
+Flame Conjuror: So… you finally see it.
+Avatris: I do.
+Flame Conjuror: Then tell me, Avatris… what have you done?
+Avatris: I ignored her. I chose a game over her. And now she’s gone.
+Flame Conjuror: She knocked on your door. She called your name. She needed you.
+Avatris: I know.
+Flame Conjuror: But you didn’t listen. You chose this.
+Avatris: And now I choose to atone.
+Flame Conjuror: Then come, Avatris. Earn your redemption.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

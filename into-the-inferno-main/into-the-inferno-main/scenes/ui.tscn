@@ -1,0 +1,251 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh0kh7wt6ibyi"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_ja4pm"]
+[ext_resource type="Texture2D" uid="uid://fbqooenawtbo" path="res://assets/upgrades/big_powerup.png" id="1_vgq81"]
+[ext_resource type="Texture2D" uid="uid://djhtc0al8e7up" path="res://assets/upgrades/multi_powerup.png" id="2_7hc01"]
+[ext_resource type="Texture2D" uid="uid://d5twq3qgmnw7" path="res://assets/upgrades/fast.png" id="4_j6k7f"]
+[ext_resource type="Texture2D" uid="uid://cgieir4ec64c1" path="res://assets/paused....png" id="4_yttrr"]
+[ext_resource type="Texture2D" uid="uid://c2v2t1odwq1ll" path="res://assets/Quit-Button.png" id="6_kngb4"]
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ja4pm")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 269.0
+grow_vertical = 0
+max_value = 200.0
+value = 200.0
+
+[node name="Meter" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 269.0
+offset_bottom = -32.0
+grow_vertical = 0
+
+[node name="BossHealth" type="ProgressBar" parent="."]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -156.0
+offset_bottom = 156.0
+grow_horizontal = 0
+grow_vertical = 2
+fill_mode = 3
+
+[node name="Upgrades" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -84.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Big" type="TextureRect" parent="Upgrades"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+texture = ExtResource("1_vgq81")
+
+[node name="Multi" type="TextureRect" parent="Upgrades"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+texture = ExtResource("2_7hc01")
+
+[node name="Backwards" type="TextureRect" parent="Upgrades"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+texture = ExtResource("4_j6k7f")
+
+[node name="ScrollsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.9, 1.9)
+
+[node name="Right" type="ColorRect" parent="ScrollsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -157.0
+offset_right = 146.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(1, 0.639586, 0.376642, 1)
+
+[node name="Label" type="Label" parent="ScrollsUI/Right"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -155.5
+offset_right = 144.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+text = "Scroll of Avatris
+He lived for the game. Every win, every loss, it all fed the fire inside him. Nothing else mattered. Not the voices calling his name from the other room. 
+Not the moments slipping away. He made his choice: the game over everything. Even at the cost of what was real."
+autowrap_mode = 2
+
+[node name="Left" type="ColorRect" parent="ScrollsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -157.0
+offset_right = 146.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(1, 0.639586, 0.376642, 1)
+
+[node name="Label" type="Label" parent="ScrollsUI/Left"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -155.5
+offset_right = 144.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+text = "Scroll of Dominion
+Power felt good. No, power felt right. Every opponent crushed, every victory stacking higher. He was untouchable, unstoppable. The game bent to his will. And yet, in the quiet between battles, something felt... missing. But he pushed that thought away. He was winning, wasn’t he?"
+autowrap_mode = 2
+
+[node name="Up" type="ColorRect" parent="ScrollsUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -157.0
+offset_right = 146.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(1, 0.639586, 0.376642, 1)
+
+[node name="Label" type="Label" parent="ScrollsUI/Up"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -155.5
+offset_right = 144.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+text = "Scroll of Reckoning
+By the time he looked up, it was too late. The world outside his screen had moved on without him.
+A plea, scrawled in shaky letters, asking for one more chance, 
+one more moment. But some things can’t be reset. Some things can’t be won back. And all he could do was watch as everything he ignored faded away. He now enters the Underwolrd, to atone for his sins"
+autowrap_mode = 2
+
+[node name="CycleHint" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -201.0
+offset_right = 82.0
+offset_bottom = -178.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Shift to toggle Upgrades"
+
+[node name="Pause" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -154.0
+offset_right = 307.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yttrr")
+
+[node name="Quit" type="TextureButton" parent="Pause"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.5
+offset_top = 63.0
+offset_right = 104.5
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_kngb4")
+
+[node name="FadeToBlack" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="value_changed" from="Meter" to="." method="_on_meter_value_changed"]
+[connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]

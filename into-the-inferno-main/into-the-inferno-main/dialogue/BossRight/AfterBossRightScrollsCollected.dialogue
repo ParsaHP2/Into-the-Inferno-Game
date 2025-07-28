@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Eater of Worlds: You read it, didn’t you?
+Avatris: I did.
+Eater of Worlds: Then you know this isn’t just about power. You were sent here for a reason.
+Avatris: I don’t care for your riddles.
+Eater of Worlds: Of course. That’s what you told her too, isn’t it?
+Avatris: Shut up.
+Eater of Worlds: Keep going, Avatris. Keep fighting. But every step forward will bring you closer to the truth.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cxp18dfxl25y3"
+path="res://.godot/imported/ConfrontingLuciferWith3Scrolls.dialogue-2326ddc33e1e857f27b6aebaec4d8e1d.tres"
+
+[deps]
+
+source_file="res://dialogue/Lucifer/ConfrontingLuciferWith3Scrolls.dialogue"
+dest_files=["res://.godot/imported/ConfrontingLuciferWith3Scrolls.dialogue-2326ddc33e1e857f27b6aebaec4d8e1d.tres"]
+
+[params]
+
+defaults=true

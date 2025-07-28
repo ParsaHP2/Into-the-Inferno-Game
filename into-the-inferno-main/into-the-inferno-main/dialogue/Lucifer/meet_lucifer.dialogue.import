@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dj2hw5t1n0wet"
+path="res://.godot/imported/meet_lucifer.dialogue-a30b36bb1b06739c74c10a95792616c0.tres"
+
+[deps]
+
+source_file="res://dialogue/Lucifer/meet_lucifer.dialogue"
+dest_files=["res://.godot/imported/meet_lucifer.dialogue-a30b36bb1b06739c74c10a95792616c0.tres"]
+
+[params]
+
+defaults=true

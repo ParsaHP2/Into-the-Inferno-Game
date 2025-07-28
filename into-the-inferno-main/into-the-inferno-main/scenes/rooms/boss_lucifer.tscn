@@ -1,0 +1,133 @@
+[gd_scene load_steps=20 format=3 uid="uid://bpyp6wmoj8pqb"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_25k8u"]
+[ext_resource type="PackedScene" uid="uid://2fjcvrt205ll" path="res://scenes/player.tscn" id="2_a22xb"]
+[ext_resource type="PackedScene" uid="uid://ceyyrj3eylvip" path="res://scenes/lucifer.tscn" id="3_ufg1n"]
+[ext_resource type="AudioStream" uid="uid://bkkcywn5mbwyv" path="res://audio/fearless-final-boss-battle-epic-274997.mp3" id="5_vyr1f"]
+[ext_resource type="AudioStream" uid="uid://j17t6prqypti" path="res://audio/660770__madpancake__hit-impact.ogg" id="5_w4dvw"]
+[ext_resource type="PackedScene" uid="uid://bh0kh7wt6ibyi" path="res://scenes/ui.tscn" id="6_xaxj0"]
+[ext_resource type="PackedScene" uid="uid://d0yfmlw4j2dtv" path="res://scenes/crate.tscn" id="7_sxj10"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fv2kc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_o2hde"]
+sky_material = SubResource("ProceduralSkyMaterial_fv2kc")
+
+[sub_resource type="Environment" id="Environment_ree4u"]
+background_mode = 2
+sky = SubResource("Sky_o2hde")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gokj3"]
+size = Vector3(1, 50, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8bv5"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s55qb"]
+size = Vector3(10, 1, 7)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1bx8l"]
+data = PackedVector3Array(-5, 0.5, 3.5, 5, 0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, -3.5, 5, -0.5, -3.5, -5, 0.5, -3.5, -5, -0.5, -3.5, 5, -0.5, -3.5, 5, 0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, -3.5, 5, -0.5, 3.5, -5, 0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, 3.5, -5, -0.5, -3.5, 5, 0.5, 3.5, -5, 0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, 3.5, -5, 0.5, -3.5, 5, 0.5, -3.5, -5, -0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, -3.5, 5, -0.5, 3.5, 5, -0.5, -3.5, -5, -0.5, -3.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0c6e3"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.593962, 0.382437, 0.121877, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tnw7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gefvy"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wh77"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_87gek"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="BossLucifer" type="Node3D" node_paths=PackedStringArray("boss")]
+script = ExtResource("1_25k8u")
+boss = NodePath("Lucifer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ree4u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_a22xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6)
+
+[node name="Lucifer" parent="." instance=ExtResource("3_ufg1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="UI" parent="." instance=ExtResource("6_xaxj0")]
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_gokj3")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("BoxShape3D_gokj3")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w4dvw")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vyr1f")
+autoplay = true
+parameters/looping = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_u8bv5")
+mesh = SubResource("BoxMesh_s55qb")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1bx8l")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 1, 0, 12, -4)
+material_override = SubResource("StandardMaterial3D_0c6e3")
+mesh = SubResource("BoxMesh_tnw7y")
+
+[node name="LeftWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, -13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_gefvy")
+mesh = SubResource("BoxMesh_6wh77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_87gek")
+
+[node name="RightWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, 13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_gefvy")
+mesh = SubResource("BoxMesh_6wh77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_87gek")
+
+[node name="Crate" parent="." instance=ExtResource("7_sxj10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+collision_layer = 1
+collision_mask = 2

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://csabu7f86bk7e"]
+
+[ext_resource type="Script" path="res://scripts/crawler.gd" id="1_1yw8k"]
+[ext_resource type="PackedScene" uid="uid://dbb7ssu1rrp2d" path="res://blends/crawler.blend" id="1_dv0d7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2m2g1"]
+radius = 1.75
+
+[node name="Crawler" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_1yw8k")
+
+[node name="Model" parent="." instance=ExtResource("1_dv0d7")]
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/0/position = Vector3(1.50666e-14, 1.92693, -0.948754)
+bones/0/rotation = Quaternion(0.839107, 6.48458e-08, 1.00029e-07, 0.543966)
+bones/1/position = Vector3(0.663644, 1.12984, -0.215177)
+bones/1/rotation = Quaternion(0.676838, 0.495975, 0.321525, -0.438772)
+bones/2/rotation = Quaternion(0.0817516, -0.0755146, -0.686234, 0.718816)
+bones/3/rotation = Quaternion(-0.0192735, -0.0708279, -0.330265, 0.94103)
+bones/4/position = Vector3(0.62687, 0.156136, -0.255114)
+bones/4/rotation = Quaternion(0.646807, 0.543112, 0.367199, -0.38966)
+bones/5/rotation = Quaternion(0.0984637, -0.0271385, -0.635834, 0.765038)
+bones/6/rotation = Quaternion(-0.00308559, -0.0713899, -0.324044, 0.94334)
+bones/7/position = Vector3(-0.663644, 1.12984, -0.215177)
+bones/7/rotation = Quaternion(0.676838, -0.495975, -0.321524, -0.438772)
+bones/8/rotation = Quaternion(0.0817516, 0.0755146, 0.686234, 0.718816)
+bones/9/rotation = Quaternion(-0.0192735, 0.070828, 0.330265, 0.94103)
+bones/10/position = Vector3(-0.62687, 0.156136, -0.255115)
+bones/11/rotation = Quaternion(0.0984637, 0.0271385, 0.635834, 0.765039)
+bones/12/rotation = Quaternion(-0.0030856, 0.0713899, 0.324044, 0.94334)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_2m2g1")
+
+[editable path="Model"]

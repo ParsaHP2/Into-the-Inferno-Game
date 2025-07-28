@@ -1,0 +1,14 @@
+~ start
+set Global.in_dialogue = true
+Flame Conjuror: You’ve made it this far… but you still don’t get it, do you?
+Avatris: I get it perfectly. I am what I’ve always been meant to be. Strong. In control.
+Flame Conjuror: Control… Power. You’ve been chasing them, but you’ve been losing yourself the whole time.
+Avatris: I’ve lost nothing.
+Flame Conjuror: You have lost. You lost the one thing that truly mattered—your humanity.
+Avatris: I’m not interested in your moral lessons. I want what’s mine. And nothing will stop me.
+Flame Conjuror: You don’t see it yet. You never will. You can’t… not without losing everything else.
+Avatris: I have nothing left to lose.
+Flame Conjuror: Then you’ll drown in it. You’ll drown in your own desires.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

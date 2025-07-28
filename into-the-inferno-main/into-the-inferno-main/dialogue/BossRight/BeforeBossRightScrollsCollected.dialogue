@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Eater of Worlds: You carry something, don’t you? A memory. A reminder. Tell me, have you started to see?
+Avatris: It’s just a piece of parchment.
+Eater of Worlds: And yet, it lingers. A voice, quiet, yet persistent. A knock at your door, unanswered. Tell me, did you ever listen?
+Avatris: I don’t know what you’re talking about.
+Eater of Worlds: Don’t you? The past whispers, even when you try to shut it out. But there is still time… if you choose to hear it.
+Avatris: I didn’t come here for riddles. Move aside.
+Eater of Worlds: Very well. But know this—every fight brings you closer to the truth. Whether you accept it or not… that is your choice.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

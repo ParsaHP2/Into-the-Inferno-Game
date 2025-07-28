@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://p4epi4xgkg4v"]
+
+[ext_resource type="Script" path="res://scripts/lava.gd" id="1_qj6tf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5118"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmhhd"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fsgwh"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7hcv"]
+size = Vector3(3, 1.5, 1)
+
+[node name="Lava" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_qj6tf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_k5118")
+mesh = SubResource("BoxMesh_xmhhd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fsgwh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_j7hcv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

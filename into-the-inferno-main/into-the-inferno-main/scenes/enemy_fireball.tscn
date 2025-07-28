@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://yng0uywf254d"]
+
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="1_16g2x"]
+[ext_resource type="Script" path="res://scripts/enemy_fireball.gd" id="1_j4h44"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="2_kvtk0"]
+[ext_resource type="ArrayMesh" uid="uid://bw4fgr4m2aj7b" path="res://blends/blends/fireball.obj" id="3_lvf5b"]
+
+[sub_resource type="Gradient" id="Gradient_fw4hr"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wqhxx"]
+gradient = SubResource("Gradient_fw4hr")
+fill_from = Vector2(0, 0.844086)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxo1u"]
+render_priority = 0
+shader = ExtResource("1_16g2x")
+shader_parameter/ColorParameter = Color(2, 0.5, 0, 1)
+shader_parameter/TextureSpeed = Vector2(0, -2)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 3.0
+shader_parameter/Main_Texture = ExtResource("2_kvtk0")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_wqhxx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3psjf"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.50196, 1, 0.2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7ontk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uhvmd"]
+radius = 0.7
+
+[node name="EnemyFireball" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_j4h44")
+
+[node name="Aura" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_pxo1u")
+mesh = ExtResource("3_lvf5b")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3psjf")
+mesh = SubResource("SphereMesh_7ontk")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_uhvmd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

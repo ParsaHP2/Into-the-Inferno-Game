@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://up3bgrrly1kw"
+path="res://.godot/imported/BeforeBossRightScrollsCollected.dialogue-7a4ad28d2dd1a61d54e10b4cd61fa134.tres"
+
+[deps]
+
+source_file="res://dialogue/BossRight/BeforeBossRightScrollsCollected.dialogue"
+dest_files=["res://.godot/imported/BeforeBossRightScrollsCollected.dialogue-7a4ad28d2dd1a61d54e10b4cd61fa134.tres"]
+
+[params]
+
+defaults=true

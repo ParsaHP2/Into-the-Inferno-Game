@@ -1,0 +1,14 @@
+~ start
+set Global.in_dialogue = true
+Crawler: So this is it… this is who you’ve become.
+Avatris: I have everything I need now.
+Crawler: You really believe that? All this strength, all this control, and for what? To rule over nothing?
+Avatris: I don’t need to answer to anyone. I decide who is worthy.
+Crawler: Such arrogance. You think you can just take power without losing yourself. But it doesn’t work that way.
+Avatris: It’s not about losing myself. It’s about becoming who I was always meant to be—strong, in control. The world will bow before me.
+Crawler: You think you can control it. But every step you take, the further you sink. Power doesn’t care about your rules. It only devours.
+Avatris: I can handle it.
+Crawler: We’ll see… but don’t say I didn’t warn you. Enjoy this moment. It’s the last time you’ll feel like a king.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

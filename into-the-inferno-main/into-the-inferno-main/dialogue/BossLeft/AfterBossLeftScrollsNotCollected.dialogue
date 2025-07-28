@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Crawler: You still don’t understand, do you? You think victory means control?
+Avatris: It’s all the same. I win, they lose. That’s what matters.
+Crawler: You’ve won nothing. You’ve only taken the next step toward losing everything… to the power you crave.
+Avatris: I’m not interested in your pity. You lost. End of story.
+Crawler: It’s not pity. It’s warning. The more you take, the more it consumes you. You’ll never be satisfied. And one day, it will be too late to turn back.
+Avatris: I don’t care about your warnings. Power is what I deserve.
+Crawler: Then enjoy it while you can. It won’t last.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

@@ -1,0 +1,10 @@
+~ start
+set Global.in_dialogue = true
+Flame Conjuror: There is nothing left for you beyond this place, Avatris. You have abandoned it all. And for what?
+Avatris: Power. Strength. The right to rule this world and the next.
+Flame Conjuror: You are a hollow shell. You speak of power, but you have no purpose. No reason. Just hunger. Endless, insatiable hunger.
+Avatris: Then let me feast.
+Flame Conjuror: Very well, monster. You are beyond saving. Come—let us see how deep your greed can take you.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

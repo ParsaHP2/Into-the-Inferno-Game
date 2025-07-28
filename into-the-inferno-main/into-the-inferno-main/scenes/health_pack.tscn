@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://fqhwnhv1gcwf"]
+
+[ext_resource type="PackedScene" uid="uid://cntnpgsu0bqb6" path="res://blends/plus.blend" id="1_1i844"]
+[ext_resource type="Script" path="res://scripts/health_pack.gd" id="1_cu7ig"]
+[ext_resource type="Texture2D" uid="uid://ch6ex835vvbqa" path="res://assets/kenney_particle-pack/PNG (Transparent)/circle_01.png" id="3_omls2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c8oo"]
+transparency = 1
+albedo_color = Color(0, 2, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbfcg"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 2, 1, 1)
+albedo_texture = ExtResource("3_omls2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_30gvm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gx1l6"]
+radius = 0.75
+
+[node name="HealthPack" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_cu7ig")
+
+[node name="plus" parent="." instance=ExtResource("1_1i844")]
+
+[node name="Cube" parent="plus" index="0"]
+material_override = SubResource("StandardMaterial3D_2c8oo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_nbfcg")
+mesh = SubResource("QuadMesh_30gvm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_gx1l6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="plus"]

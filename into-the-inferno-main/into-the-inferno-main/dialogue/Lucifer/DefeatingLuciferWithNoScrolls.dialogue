@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Lucifer: You think you’ve won... You’ve only taken the first step. Power corrupts all who seek it. You’ll fall... just like me.
+Avatris: No. I’ve learned. I understand now what you took from me.
+Lucifer: You can’t run from it. You’ve already tasted what I gave you. You’re no different. You’ll become me... you’ll become the king of the underworld.
+Avatris: No, I won’t be you. I won’t be a prisoner of greed and power. I fought to get here, and I’ll fight to stay true to myself.
+Lucifer: You think you can stop the inevitable? You’re nothing without me!
+Avatris: I am something. I’m free. I’m not a slave to my desires anymore.
+Avatris: It’s over. The path to redemption is behind me. I choose to leave it all behind.
+set Global.in_dialogue = true
+set Global.dialogue_Finished.emit()
+=> END

@@ -1,0 +1,155 @@
+[gd_scene load_steps=25 format=3 uid="uid://donkq51x0hpor"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_61m13"]
+[ext_resource type="PackedScene" uid="uid://2fjcvrt205ll" path="res://scenes/player.tscn" id="1_a8agm"]
+[ext_resource type="PackedScene" uid="uid://bh0kh7wt6ibyi" path="res://scenes/ui.tscn" id="3_66txv"]
+[ext_resource type="PackedScene" uid="uid://die810lac22w3" path="res://scenes/eater_of_worlds.tscn" id="3_bm5pw"]
+[ext_resource type="PackedScene" uid="uid://dhpruwfwejdip" path="res://scenes/door.tscn" id="4_f867i"]
+[ext_resource type="PackedScene" uid="uid://bxrahn3li0f3m" path="res://scenes/break_platform.tscn" id="6_olb0p"]
+[ext_resource type="AudioStream" uid="uid://3628a6y2f5tw" path="res://audio/intense-gritty-hard-rock-270016.mp3" id="7_786kf"]
+[ext_resource type="PackedScene" uid="uid://d0yfmlw4j2dtv" path="res://scenes/crate.tscn" id="7_hgn77"]
+[ext_resource type="AudioStream" uid="uid://j17t6prqypti" path="res://audio/660770__madpancake__hit-impact.ogg" id="8_aiomb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fv2kc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_o2hde"]
+sky_material = SubResource("ProceduralSkyMaterial_fv2kc")
+
+[sub_resource type="Environment" id="Environment_ree4u"]
+background_mode = 2
+sky = SubResource("Sky_o2hde")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdp2t"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vx5wn"]
+size = Vector3(10, 1, 7)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iu23j"]
+data = PackedVector3Array(-5, 0.5, 3.5, 5, 0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, -3.5, 5, -0.5, -3.5, -5, 0.5, -3.5, -5, -0.5, -3.5, 5, -0.5, -3.5, 5, 0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, 3.5, 5, 0.5, -3.5, 5, -0.5, -3.5, 5, -0.5, 3.5, -5, 0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, -3.5, -5, 0.5, 3.5, -5, -0.5, 3.5, -5, -0.5, -3.5, 5, 0.5, 3.5, -5, 0.5, 3.5, 5, 0.5, -3.5, -5, 0.5, 3.5, -5, 0.5, -3.5, 5, 0.5, -3.5, -5, -0.5, 3.5, 5, -0.5, 3.5, -5, -0.5, -3.5, 5, -0.5, 3.5, 5, -0.5, -3.5, -5, -0.5, -3.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njai8"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.593962, 0.382437, 0.121877, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vkoad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6cik"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsrnw"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r8rro"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px0bk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8lihm"]
+size = Vector3(2, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06g08"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsx6x"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[node name="BossRight" type="Node3D" node_paths=PackedStringArray("boss")]
+script = ExtResource("1_61m13")
+boss = NodePath("EaterOfWorlds")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ree4u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_a8agm")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_kdp2t")
+mesh = SubResource("BoxMesh_vx5wn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_iu23j")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 1, 0, 12, -4)
+material_override = SubResource("StandardMaterial3D_njai8")
+mesh = SubResource("BoxMesh_vkoad")
+
+[node name="LeftWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, -13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_l6cik")
+mesh = SubResource("BoxMesh_wsrnw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_r8rro")
+
+[node name="RightWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 26.52, 0, 0, 0, 7, 13.5, 13.2, 0)
+material_override = SubResource("StandardMaterial3D_l6cik")
+mesh = SubResource("BoxMesh_wsrnw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_r8rro")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
+
+[node name="EaterOfWorlds" parent="." instance=ExtResource("3_bm5pw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, -1, 0)
+
+[node name="Exit" parent="." instance=ExtResource("4_f867i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1.5, 0)
+collision_mask = 0
+connection = "res://scenes/score_screen.tscn"
+
+[node name="UI" parent="." instance=ExtResource("3_66txv")]
+
+[node name="BreakPlatform" parent="." instance=ExtResource("6_olb0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_px0bk")
+mesh = SubResource("BoxMesh_8lihm")
+
+[node name="BreakPlatform2" parent="." instance=ExtResource("6_olb0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_06g08")
+mesh = SubResource("BoxMesh_8lihm")
+
+[node name="BreakPlatform3" parent="." instance=ExtResource("6_olb0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_qsx6x")
+mesh = SubResource("BoxMesh_8lihm")
+
+[node name="Crate" parent="." instance=ExtResource("7_hgn77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.17496, 0)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_786kf")
+autoplay = true
+parameters/looping = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_aiomb")

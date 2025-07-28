@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2r7hl2ei2j33"]
+
+[ext_resource type="PackedScene" uid="uid://826la1d4un5y" path="res://blends/scroll.blend" id="1_32plt"]
+
+[sub_resource type="Animation" id="Animation_xfxso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scroll:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kolnh"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scroll:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.26573, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fggh"]
+_data = {
+"RESET": SubResource("Animation_xfxso"),
+"spin": SubResource("Animation_kolnh")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8a71j"]
+radius = 0.25
+height = 1.0
+
+[node name="Scroll" type="Area3D"]
+collision_mask = 2
+
+[node name="scroll" parent="." instance=ExtResource("1_32plt")]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7fggh")
+}
+autoplay = "spin"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_8a71j")

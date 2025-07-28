@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Crawler: Look at you. A king in his own mind. Do you feel it, Avatris? That rush? That power? Tell me—what will you do once there is no one left to crush?
+Avatris: I could stay here a while. Test my strength a little more.
+Crawler: Pathetic. Like a beast drunk on its own roar. You think this is power? Strength without purpose is nothing but a cage. And you? You are its willing prisoner.
+Avatris: Keep talking. It won’t change the fact that I’m getting stronger. That I’m winning.
+Crawler: Winning? Against who? Look at you—so desperate to conquer that you don’t see what you’ve already lost. You wear your greed like armor, but it will do nothing when the truth cuts through.
+Avatris: You're just afraid of what I’ll become.
+Crawler: No. I pity you. Now, come—show me just how far your strength has taken you.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

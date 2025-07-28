@@ -1,0 +1,157 @@
+[gd_scene load_steps=24 format=3 uid="uid://cydex76cqgycj"]
+
+[ext_resource type="PackedScene" uid="uid://bjuwcvdmmnkdh" path="res://blends/flame_conjuror.blend" id="1_56jo5"]
+[ext_resource type="Script" path="res://scripts/flame_conjuror.gd" id="1_lc8e4"]
+[ext_resource type="Shader" uid="uid://dvcev4j13r8gr" path="res://fireball_shader.tres" id="3_m4rqm"]
+[ext_resource type="Texture2D" uid="uid://dtjbjbflryxcc" path="res://assets/noise.png" id="4_a30um"]
+[ext_resource type="ArrayMesh" uid="uid://e7slvect3wob" path="res://blends/blends/beam.obj" id="5_w3hix"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oue7u"]
+size = Vector3(3, 3, 1)
+
+[sub_resource type="Gradient" id="Gradient_s7mcc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3a01b"]
+gradient = SubResource("Gradient_s7mcc")
+fill_from = Vector2(0, 0.864734)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_753gq"]
+render_priority = 0
+shader = ExtResource("3_m4rqm")
+shader_parameter/ColorParameter = Color(2, 0.5, 0, 1)
+shader_parameter/TextureSpeed = Vector2(1, -3)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 1.0
+shader_parameter/Main_Texture = ExtResource("4_a30um")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_3a01b")
+
+[sub_resource type="Curve" id="Curve_c3323"]
+max_value = 4.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(0.8, 4), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_7mb54"]
+max_value = 4.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(0.8, 4), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_3btud"]
+max_value = 45.0
+_data = [Vector2(0, 1), 0.0, 71.2005, 0, 0, Vector2(0.3, 45), 0.0, 0.0, 0, 0, Vector2(1, 45), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_23bof"]
+curve_x = SubResource("Curve_c3323")
+curve_y = SubResource("Curve_7mb54")
+curve_z = SubResource("Curve_3btud")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sag07"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveXYZTexture_23bof")
+
+[sub_resource type="Gradient" id="Gradient_a4ib7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_niotp"]
+gradient = SubResource("Gradient_a4ib7")
+fill_from = Vector2(0, 0.888889)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv7g3"]
+render_priority = 0
+shader = ExtResource("3_m4rqm")
+shader_parameter/ColorParameter = Color(1.502, 1, 0.2, 1)
+shader_parameter/TextureSpeed = Vector2(1, -2)
+shader_parameter/Have_Gradient = true
+shader_parameter/Power = 1.0
+shader_parameter/Main_Texture = ExtResource("4_a30um")
+shader_parameter/Gradient_Texture = SubResource("GradientTexture2D_niotp")
+
+[sub_resource type="Curve" id="Curve_0x6us"]
+max_value = 3.0
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(1e-05, 3), 0.0, 0.0, 0, 0, Vector2(0.8, 3), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_mudfx"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(0.8, 3), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_onqn1"]
+max_value = 45.0
+_data = [Vector2(0, 1), 0.0, 71.2005, 0, 0, Vector2(0.3, 45), 0.0, 0.0, 0, 0, Vector2(1, 45), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ke3ng"]
+curve_x = SubResource("Curve_0x6us")
+curve_y = SubResource("Curve_mudfx")
+curve_z = SubResource("Curve_onqn1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hb6wd"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveXYZTexture_ke3ng")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wqib"]
+size = Vector3(1.5, 1.5, 11)
+
+[node name="FlameConjuror" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_lc8e4")
+
+[node name="Model" parent="." instance=ExtResource("1_56jo5")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.057189, 0, 0, 0.998363)
+bones/4/rotation = Quaternion(0.195722, 0.301059, -0.861468, 0.359066)
+bones/5/rotation = Quaternion(0.599039, -1.37324e-06, 0.149499, 0.78664)
+bones/6/rotation = Quaternion(0.195722, -0.301059, 0.861468, 0.359066)
+bones/7/rotation = Quaternion(0.599039, 1.29268e-06, -0.149499, 0.78664)
+bones/8/rotation = Quaternion(-0.498098, 0.501894, -0.501894, 0.498098)
+bones/9/position = Vector3(1.0746, 1.23769, 0.28553)
+bones/10/position = Vector3(3.07975e-05, -1.75576e-05, 2.01858e-05)
+bones/10/rotation = Quaternion(0.195161, -0.221623, -0.865008, 0.405655)
+bones/11/rotation = Quaternion(0.498098, 0.501894, -0.501894, -0.498098)
+bones/12/position = Vector3(-1.0746, 1.23769, 0.28553)
+bones/13/position = Vector3(-3.09167e-05, -1.75576e-05, 2.01858e-05)
+bones/13/rotation = Quaternion(0.195161, 0.221623, 0.865008, 0.405655)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_oue7u")
+
+[node name="Beam" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.4, 1.7, 1.7)
+collision_mask = 2
+
+[node name="Outer" type="GPUParticles3D" parent="Beam"]
+material_override = SubResource("ShaderMaterial_753gq")
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+fixed_fps = 75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sag07")
+draw_pass_1 = ExtResource("5_w3hix")
+
+[node name="Inner" type="GPUParticles3D" parent="Beam"]
+material_override = SubResource("ShaderMaterial_kv7g3")
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+fixed_fps = 75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_hb6wd")
+draw_pass_1 = ExtResource("5_w3hix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Beam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78814e-07, 0, -5)
+shape = SubResource("BoxShape3D_7wqib")
+
+[editable path="Model"]

@@ -1,0 +1,13 @@
+~ start
+set Global.in_dialogue = true
+Lucifer: You think you’ve won... You’ve only delayed the inevitable.
+Avatris: No. I’ve ended this. And I won’t let you return.
+Lucifer: You can’t stop it. Power always corrupts. You’ll become like me. You’ll lose it all, just like the others before you.
+Avatris: I learned from my mistakes. I won’t fall into that trap. I understand now. Power isn’t everything.
+Avatris: I’ve found my redemption. Not through power... but through understanding.
+Lucifer: You will fall... just as I did. All of you.
+Avatris: I’ve learned enough to know that’s not my path.
+Avatris: It’s over. I’ve found my way out.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

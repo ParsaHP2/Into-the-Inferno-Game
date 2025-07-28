@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmquiqg4qnw2u"]
+
+[ext_resource type="Script" path="res://scripts/avatris_boss.gd" id="1_gvh3s"]
+[ext_resource type="PackedScene" uid="uid://bkanswhebslef" path="res://blends/protagonist.blend" id="2_rdgm1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ww01o"]
+
+[node name="AvatrisBoss" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_gvh3s")
+
+[node name="Model" parent="." instance=ExtResource("2_rdgm1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/0/position = Vector3(0, 0.258485, 0)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 1.05879e-22, 1)
+bones/1/rotation = Quaternion(-3.55271e-15, 1.77636e-14, -4.03897e-28, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, -4.03897e-28, 1)
+bones/3/rotation = Quaternion(7.00163e-07, -7.43247e-08, 0.982514, -0.186187)
+bones/4/rotation = Quaternion(1.55497e-07, 7.76589e-09, -0.0179299, 0.999839)
+bones/5/rotation = Quaternion(-9.34413e-07, -1.18715e-07, 0.982514, 0.186187)
+bones/6/rotation = Quaternion(1.55497e-07, -7.76581e-09, 0.0179299, 0.999839)
+bones/7/position = Vector3(0.21749, -0.0188073, 8.38476e-08)
+bones/7/rotation = Quaternion(0.000879186, -0.0123999, 0.997421, -0.0706948)
+bones/8/rotation = Quaternion(0.532417, -6.64599e-08, -0.0381116, 0.845624)
+bones/9/position = Vector3(-0.21749, -0.0188073, -1.99513e-08)
+bones/9/rotation = Quaternion(-0.000879395, -0.0123999, 0.997421, 0.0706948)
+bones/10/rotation = Quaternion(0.532417, 6.13906e-08, 0.0381116, 0.845624)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ww01o")
+
+[editable path="Model"]

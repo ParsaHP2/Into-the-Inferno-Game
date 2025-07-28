@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://2fb55dk8oqsi"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_eai2e"]
+[ext_resource type="Texture2D" uid="uid://wvanibi4k48o" path="res://assets/Main-BG.jpg" id="2_ocisk"]
+[ext_resource type="Texture2D" uid="uid://kf36ewhh76gx" path="res://assets/Title-Plain.png" id="3_ihtdf"]
+[ext_resource type="Texture2D" uid="uid://cjn74x6jr1wb3" path="res://assets/start game.png" id="4_gx3mr"]
+[ext_resource type="Texture2D" uid="uid://xd6q2h43338n" path="res://assets/Exit.png" id="5_idrtu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eai2e")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ocisk")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = 142.0
+offset_right = 395.0
+offset_bottom = 251.0
+grow_horizontal = 2
+texture = ExtResource("3_ihtdf")
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 40.0
+offset_right = 112.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_gx3mr")
+
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 130.0
+offset_right = 38.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_idrtu")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

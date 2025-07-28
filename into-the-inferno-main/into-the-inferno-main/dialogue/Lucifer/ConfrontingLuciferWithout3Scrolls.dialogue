@@ -1,0 +1,15 @@
+~ start
+set Global.in_dialogue = true
+Lucifer: You’ve come so far, Avatris. You’ve done well. And now, you’re ready. Ready to take your place at my side.
+Avatris: I… I won’t join you. I won’t become like you.
+Lucifer: Oh, but you already have. You think I didn’t see it? You’ve been consumed by greed, by the hunger for power. All that you’ve done, it’s led you here. This is your destiny. You are me, and I am you.
+Evil Avatris (King of the Underworld): You think you can escape me? This is what you’ve become. You thought you could fight it, but this is who you truly are. Power. Control. Nothing else matters.
+Avatris: No… I didn’t want this. I didn’t want to be you.
+Lucifer: Everything you’ve done has brought you here. You’ve crossed the line, Avatris. The underworld is yours to rule now. Become the king you were always meant to be.
+Evil Avatris (King of the Underworld): Join me, brother. Together, we’ll rule the underworld. You have the power, you have the strength. Fight for it. You deserve this.
+Avatris: No. I’m not you. I was… I was blind. But now I see. I won’t become a tyrant. I won’t give in to this.
+Lucifer: You are mine, Avatris. You always were. There’s no escaping this. You have nothing left but power. Why fight it? Why fight yourself?
+Avatris: I’m not you. I’m not him. I won’t let you win. This ends here!"
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

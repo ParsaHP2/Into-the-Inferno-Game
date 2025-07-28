@@ -1,0 +1,12 @@
+~ start
+set Global.in_dialogue = true
+Eater of Worlds: You… you don’t even see it, do you?
+Avatris: See what? That I’m stronger? That I won?
+Eater of Worlds: You think this is strength. But strength without purpose… it rots you from the inside.
+Avatris: You’re wasting your last words on riddles.
+Eater of Worlds: No… I’m wasting them on a man who won’t listen.
+Avatris: You’re stalling. You lost. Accept it.
+Eater of Worlds: I just hope… when you finally realize what you’ve become… it won’t be too late.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END

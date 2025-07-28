@@ -1,0 +1,14 @@
+~ start
+set Global.in_dialogue = true
+Flame Conjuror: So, you’ve come to the end… but you still think it’s worth it? All of this?
+Avatris: I thought it was. I thought I could control it.
+Flame Conjuror: You’ve chased it for so long… but now you realize, don’t you? Power isn’t the answer. It never was. It destroys everything it touches.
+Avatris: It almost destroyed me. But it doesn’t have to be like that anymore.
+Flame Conjuror: You… you truly understand now?
+Avatris: I can make it right. I can fight for something greater than myself. I won’t let this greed consume me.
+Flame Conjuror: Then you’ve made the right choice… but the path ahead will be harder than you can imagine. Lucifer won’t fall easily.
+Avatris: I don’t care. I’m done running from the truth. I’m going to stop him.
+Avatris: "For her… for the world. I won’t let this darkness win.
+set Global.in_dialogue = false
+set Global.dialogue_Finished.emit()
+=> END
