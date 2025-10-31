@@ -1,4 +1,4 @@
-#My Into the Inferno Game
+# My Into the Inferno Game
 
 Developed with Godot
 
